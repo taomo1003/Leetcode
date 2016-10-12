@@ -13,3 +13,11 @@ public class no_121 {
     return max >0 ? max:0;
     }
 }
+
+
+//int min = Integer.MAX_VALUE, max = 0;
+//for (int i = 0; i < prices.length; i++) {
+//    min = Math.min(min, prices[i]);
+//    max = Math.max(max, prices[i] - min);
+//}
+//return max;

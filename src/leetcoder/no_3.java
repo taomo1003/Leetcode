@@ -1,34 +1,22 @@
 package leetcoder;
 
+import java.util.HashMap;
+
 public class no_3 {
-	 public static int lengthOfLongestSubstring(String s) {
-	  if (s.length()==0) return 0;
-	  if (s.length()==1) return 1;
-	  
-	  int i = 0;
-	  while (i<s.length()) {
-		 int index = firstIndexof(s.substring(i+1, s.length()),s.charAt(i));
-		if (index != -1) {
-		index = index+i;
-		int s1l = lengthOfLongestSubstring(s.substring(0,index+1));
-		int s2l = lengthOfLongestSubstring(s.substring(i+1,s.length()));
-		return Math.max(s1l,s2l);	
+	public static int lengthOfLongestSubstring(String s) {
+		 int maxlength = 0;
+		 HashMap<Character, Integer> map = new HashMap<>();
+		 for (int i = 0, j=0; i < s.length(); i++) {
+			if (map.containsKey(s.charAt(i))){
+				j = Math.max(map.get(s.charAt(i)), j);
+			}
+			maxlength = Math.max(i-j+1, maxlength);
+			map.put(s.charAt(i), i+1);
 		}
-		i++;
-	}
-	  return s.length();
+		 
+		 return maxlength;
 	}
 	 
-	 
-	 private static int firstIndexof(String substring, char charAt) {
-		for (int i = 0; i < substring.length(); i++) {
-			if (substring.charAt(i)==charAt)
-				return i;
-		}	 
-		return -1;
-	}
-
-
 	public static void main(String[] args){
 		 System.out.println(lengthOfLongestSubstring("kbpjjxrrrgejkrapjvldmgofucbtokobnfmwddnuluewlglwbyzneoubsxughkjwpvtsyinkctiobvmcumracmbujxct"));
 	 }
