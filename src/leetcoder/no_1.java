@@ -3,7 +3,9 @@ package leetcoder;
 import java.util.HashMap;
 
 public class no_1 {
-
+	ansianoee
+	mcioaeocm
+	mcioaeocm
 }
 
 //Old
